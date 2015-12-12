@@ -59,6 +59,8 @@ window.onload = function(){
     }
   }
 
+  var dragColor;
+
   //ELEMENT DIV pixelGrid
   var pixelGrid = document.createElement('div');
     pixelGrid.className = 'pixelGrid';
@@ -76,13 +78,27 @@ window.onload = function(){
       canPixels.className = 'canPixels';
       canvasRow.appendChild(canPixels);
 
+      //when click current color will appear
       canPixels.addEventListener('click', function(){
+
+        if( dragColor === this.style.background ){
+          dragColor = !newColor;
+          console.log(newColor);
+          return dragColor;
+        }
+
         this.style.background = newColor;
-        console.log(this.style.background);
+        this.style.opacity = 1;
+        dragColor = newColor;
+        return dragColor;
+      });
+
+      //then when dragged, will appear current color
+      canPixels.addEventListener('mouseover', function(){
+        this.style.background = dragColor;
       });
     }
   }
-
 
   document.getElementById('colorBtn1').style.background = 'red';
   document.getElementById('colorBtn2').style.background = 'orange';
