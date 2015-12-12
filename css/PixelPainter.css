@@ -1,19 +1,41 @@
+* {
+  margin: 0px;
+}
+
 .colorGrid {
   width: 180px;
-  border: 1px red solid;
+  float: left;
+  margin-left: 30px;
+  margin-top: 100px;
 }
 
 .colorRow {
-  border: 1px yellow solid;
   width: 100%;
 }
 
 .colorBtn {
-  border: 1px black solid;
+  border: 0px white solid;
   height: 25px;
   width: 15%;
   display: inline-block;
 }
 
-.
+.pixelGrid {
+  width: 600px;
+  border: 2px purple dashed;
+  float: right;
+}
+
+.canvasRow {
+  width: 100%;
+  margin-left: 20px;
+  margin-bottom: 0px;
+}
+
+.canPixels {
+  border: 1px gray dashed;
+  height: 25px;
+  width: 25px;
+  display: inline-block;
+}
 
