@@ -1,0 +1,19 @@
+.colorGrid {
+  width: 180px;
+  border: 1px red solid;
+}
+
+.colorRow {
+  border: 1px yellow solid;
+  width: 100%;
+}
+
+.colorBtn {
+  border: 1px black solid;
+  height: 25px;
+  width: 15%;
+  display: inline-block;
+}
+
+.
+
