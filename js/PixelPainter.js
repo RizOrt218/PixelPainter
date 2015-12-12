@@ -9,7 +9,7 @@
     this._height = height;
     this._width = width;
 
-    []
+    [];
 
     this.swatch = new ColorBtn();
 
@@ -20,7 +20,7 @@
   function ColorBtn ( color ){
     this._color = color;
 
-    var colors = []
+    var colors = [];
 
   }
 
@@ -59,6 +59,10 @@ window.onload = function(){
     }
   }
 
+  var eraseBtn = document.createElement('div');
+  eraseBtn.className = 'eraseBtn';
+    main.appendChild(eraseBtn);
+
   //ELEMENT DIV pixelGrid
   var pixelGrid = document.createElement('div');
     pixelGrid.className = 'pixelGrid';
@@ -82,6 +86,7 @@ window.onload = function(){
       });
     }
   }
+
 
 
   document.getElementById('colorBtn1').style.background = 'red';
