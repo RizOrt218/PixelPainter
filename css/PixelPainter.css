@@ -30,13 +30,34 @@ body {
 .starterColors {
   width: 25%;
   height: 100%;
+  float: left;
   background-color: teal;
 }
 
-.colorBtn {
-  border: 0px white solid;
+.starterColorBtn {
+  border: 0px;
   height: 10%;
   width: 100%;
+}
+
+.swatchLandingArea {
+  height: 100%;
+  width: 75%;
+  background-color: yellow;
+  float: right;
+}
+
+.redSwatchRow {
+  height: 10%;
+  width: 100%;
+  background-color: #FF0000;
+}
+
+.redSwatchBtn {
+  height: 100%;
+  width: 20%;
+  background-color: gray;
+  display: inline-block;
 }
 
 /*.funButtons {
