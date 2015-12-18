@@ -44,23 +44,23 @@ window.onload = function() {
     rightScreen.className = 'rightScreen';
     main.appendChild( rightScreen );
 
-  var colors = document.createElement( 'div' );
-    colors.className = 'colorGrid';
-    leftScreen.appendChild( colors );
+  var colorGrid = document.createElement( 'div' );
+    colorGrid.className = 'colorGrid';
+    leftScreen.appendChild( colorGrid );
 
-//color swatches row
-  for( var i = 1; i <= 12; i++ ){
-    var colorRow = document.createElement( 'div' );
-    colorRow.id = 'colorRow' + i;
-    colorRow.className = 'colorRow';
-    colors.appendChild( colorRow );
+//Starter colors on left side
+  for( var i = 1; i <= 1; i++ ){
+    var starterColors = document.createElement( 'div' );
+    starterColors.id = 'starterColors' + i;
+    starterColors.className = 'starterColors';
+    colorGrid.appendChild( starterColors );
 
   //color swatches
-    for( var j = 1; j <= 6; j++ ){
+    for( var j = 1; j <= 10; j++ ){
       var colorBtn = document.createElement( 'div' );
       colorBtn.id = 'colorBtn' + j;
       colorBtn.className = 'colorBtn';
-      colorRow.appendChild( colorBtn );
+      starterColors.appendChild( colorBtn );
 
       colorBtn.addEventListener( 'click', function() {
         newColor = this.style.background;
@@ -125,12 +125,16 @@ window.onload = function() {
     }
   }
 
-  document.getElementById('colorBtn1').style.background = 'red';
-  document.getElementById('colorBtn2').style.background = 'orange';
-  document.getElementById('colorBtn3').style.background = 'blue';
-  document.getElementById('colorBtn4').style.background = 'pink';
-  document.getElementById('colorBtn5').style.background = 'green';
-  document.getElementById('colorBtn6').style.background = 'purple';
+  document.getElementById('colorBtn1').style.background = '#FF0000';
+  document.getElementById('colorBtn2').style.background = '#F56905';
+  document.getElementById('colorBtn3').style.background = '#F5E505';
+  document.getElementById('colorBtn4').style.background = '#038C05';
+  document.getElementById('colorBtn5').style.background = '#0034C2';
+  document.getElementById('colorBtn6').style.background = '#6E00C2';
+  document.getElementById('colorBtn7').style.background = '#C2009E';
+  document.getElementById('colorBtn8').style.background = '#5C2B00';
+  document.getElementById('colorBtn9').style.background = '#000000';
+  document.getElementById('colorBtn10').style.background = '#FFFFFF';
 
 
   var funButtons = document.createElement('div');
