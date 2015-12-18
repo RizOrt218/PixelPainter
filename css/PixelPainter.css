@@ -1,12 +1,13 @@
 h1 {
-  font-size: 30px;
+  font-family: Arial;
+  font-size: 45px;
   margin-bottom: 0;
   text-align: center;
+  text-shadow: 2px 2px #AAAAAA;
 }
 
 body {
   background-color: #B7FAF2;
-  /*background-image: url("http://orig09.deviantart.net/b2ab/f/2013/120/5/9/untitled_drawing_by_bepbody64-d63md74.png");*/
   background-size: 20%;
   background-repeat: no-repeat;
   background-position: left;
@@ -27,7 +28,6 @@ body {
   background-color: white;
 }
 
-
 .starterColors {
   width: 25%;
   height: 100%;
@@ -41,32 +41,31 @@ body {
 }
 
 .rightScreen {
-  /*background-image: url('http://www.hdwallpapersn.com/wp-content/uploads/2015/04/Free-Background-Wallpapers3.jpg');*/
   border-radius: 10px;
   float: right;
   height: 100%;
   width: 79%;
 }
 .pixelGrid {
-  height: 100%;
-  width: 100%;
-  /*float: right;*/
-  margin: 5%;
+  /*background-image: url('http://www.hdwallpapersn.com/wp-content/uploads/2015/04/Free-Background-Wallpapers3.jpg');*/
+  background-image: url("http://orig09.deviantart.net/b2ab/f/2013/120/5/9/untitled_drawing_by_bepbody64-d63md74.png");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .canvasRow {
-  width: 100%;
-  margin-left: 10px;
-  margin-bottom: 0px;
+  /*width: 100%;*/
+  margin-left: 19px;
+  /*margin-bottom: 0px;*/
 }
 
 .canPixels {
   border-right: 1px #F6F6F6 solid;
   border-bottom: 1px #F6F6F6 solid;
-  height: 1%;
-  width: 1%;
+  height: 8px;
+  width: 8px;
   display: inline-block;
-  background-color: #FFFFFF;
+  position: center;
   opacity: .7;
 }
 
