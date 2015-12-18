@@ -32,6 +32,8 @@ window.onload = function() {
   var dragColor;
   var stroke = false;
   var undoArr = [];
+  var colorArray = [];
+
 
   var main = document.getElementById( 'pixelPainter' );
 
@@ -47,6 +49,12 @@ window.onload = function() {
   var colorGrid = document.createElement( 'div' );
     colorGrid.className = 'colorGrid';
     leftScreen.appendChild( colorGrid );
+
+  var header = document.createElement( 'h1' );
+    header.id = 'header';
+    rightScreen.appendChild( header );
+    document.getElementById( 'header' ).innerHTML = 'PixelPainter';
+    document.getElementById( 'header' ).style.background = newColor;
 
 //Starter colors on left side
   for( var i = 1; i <= 1; i++ ){
@@ -81,45 +89,55 @@ window.onload = function() {
 
     for( var p = 1; p <= 80 ; p++ ){
       var canPixels = document.createElement( 'div' );
+      canPixels.style.background = '#ffffff';
       canPixels.id = 'canPixels' + p;
       canPixels.className = 'canPixels';
       canvasRow.appendChild( canPixels );
 
       //when click current color will appear
       canPixels.addEventListener( 'click', function() {//<---------click fn
-
-        if( dragColor === this.style.background ){
-          dragColor = !newColor;
-          return dragColor;
-        }
-        //undoArr.push( canPixels );
-        this.style.background = newColor;
-        dragColor = newColor;
-        return dragColor;
-
-
-        //returns stroke to true while pushing canPixels to undoArr
-        // if( stroke === false ){
-        //   stroke = true;
-        //   console.log( undoArr );
-        //   console.log( stroke );
-        //   return stroke;
-        // } else {
-        //   stroke = false;
-        //   console.log( stroke );
-        //   return stroke;
+        //   console.log(this);
+        // if( dragColor === this.style.background ){
+        //   dragColor = !newColor;
+        //   return dragColor;
         // }
+        //           console.log(this);
 
+
+        // dragColor = newColor;
+        // return dragColor;
+
+
+        undoArr.push( this );
+        colorArray.push( this.style.background )
+        console.log( this );
+        //returns stroke to true while pushing canPixels to undoArr
+        if( stroke === false ){
+          stroke = true;
+          this.style.background = newColor;
+          //console.log( undoArr );
+          //console.log( stroke );
+          return stroke;
+        } else {
+          stroke = false;
+          //console.log( stroke );
+
+          return stroke;
+        }
       });
 
       //when dragged, will appear current color
       canPixels.addEventListener( 'mouseover', function() {
-        this.style.background = dragColor;
 
-        // while( stroke === true ){
-        //   undoArr.push( canPixels );
-        //   console.log( undoArr );
-        // }
+        while( stroke === true ){
+          console.log( this.style.background );
+          undoArr.push( this );
+          colorArray.push( this.style.background );
+        this.style.background = newColor;
+
+          if ( stroke === false );
+            return false;
+        }
 
       });
     }
@@ -138,6 +156,7 @@ window.onload = function() {
 
 
   var funButtons = document.createElement('div');
+    funButtons.id = 'funButtons';
     funButtons.className = 'funButtons';
     leftScreen.appendChild(funButtons);
 
@@ -185,4 +204,14 @@ window.onload = function() {
     undoButton.className = 'fnButtons';
     funButtons.appendChild( undoButton );
     document.getElementById( 'undoButton').innerHTML = 'Undo';
+
+    document.getElementById('undoButton').addEventListener('click',function(){
+      var length = undoArr.length - 1;
+      console.log(undoArr);
+      console.log(colorArray);
+      undoArr[length].style.background = colorArray[length];
+      undoArr.splice(length,1);
+      colorArray.splice(length,1);
+
+    });
 };//end of function

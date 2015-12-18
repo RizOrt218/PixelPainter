@@ -1,8 +1,9 @@
 h1 {
   font-size: 30px;
   margin-bottom: 0;
-
+  text-align: center;
 }
+
 body {
   background-color: #B7FAF2;
   /*background-image: url("http://orig09.deviantart.net/b2ab/f/2013/120/5/9/untitled_drawing_by_bepbody64-d63md74.png");*/
@@ -39,14 +40,8 @@ body {
   width: 100%;
 }
 
-/*.funButtons {
-  background-color: black;
-  width: 100%;
-  height: 50%;
-}*/
-
 .rightScreen {
-  background-image: url('http://www.hdwallpapersn.com/wp-content/uploads/2015/04/Free-Background-Wallpapers3.jpg');
+  /*background-image: url('http://www.hdwallpapersn.com/wp-content/uploads/2015/04/Free-Background-Wallpapers3.jpg');*/
   border-radius: 10px;
   float: right;
   height: 100%;
@@ -75,6 +70,13 @@ body {
   opacity: .7;
 }
 
+#funButtons {
+  background-image: url("http://orig09.deviantart.net/b2ab/f/2013/120/5/9/untitled_drawing_by_bepbody64-d63md74.png");
+  background-size: 20px 40px;
+  background-repeat: no-repeat;
+  padding-top: 500px;
+}
+
 .fnButtons {
   height: 20px;
   width: 60px;
@@ -84,13 +86,18 @@ body {
   color: #ffffff;
   text-align: center;
   text-shadow: 1px 1px 1px #000;
-  margin: 0px 5px 10px 10px;
+  margin: 0px 5px 10px 12%;
   padding: .5em;
   border: solid thin #882d13;
   background-color: #FADC9F;
   border-radius: .3em .9em;
   box-shadow: 2px 2px 2px #bbb;
   display: inline-block;
+}
+
+.fnButtons:hover {
+  box-shadow: 2px 2px 2px #8E8E8E;
+  background-color: #DFB169;
 }
 
 
