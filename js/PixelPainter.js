@@ -1,40 +1,39 @@
+  // function PixelPainter ( name ){
+  //   this._name = name;
+  // }
 
+  // function ColorSwatch ( height, width ){
+  //   this._height = height;
+  //   this._width = width;
 
+  //   []
 
-  function PixelPainter ( name ){
-    this._name = name;
-  }
+  //   this.swatch = new ColorBtn();
 
-  function ColorSwatch ( height, width ){
-    this._height = height;
-    this._width = width;
+  // }
 
-    []
+  // ColorSwatch.prototype = Object.create( PixelPainter.prototype );
 
-    this.swatch = new ColorBtn();
+  // function ColorBtn ( color ){
+  //   this._color = color;
 
-  }
+  //   var colors = []
 
-  ColorSwatch.prototype = Object.create( PixelPainter.prototype );
+  // }
 
-  function ColorBtn ( color ){
-    this._color = color;
-
-    var colors = []
-
-  }
-
-  ColorBtn.prototype = Object.create( ColorSwatch.prototype );
+  // ColorBtn.prototype = Object.create( ColorSwatch.prototype );
 
   //create function to show default color swatch
 
 window.onload = function() {
+
   var newColor;
   var dragColor;
+  var stroke = false;
+  var undoArr = [];
 
   var main = document.getElementById( 'pixelPainter' );
 
-  //ELEMENT DIV color
   var colors = document.createElement( 'div' );
     colors.className = 'colorGrid';
     main.appendChild( colors );
@@ -43,12 +42,14 @@ window.onload = function() {
     undoButton.className = 'undoButton';
     main.appendChild( undoButton );
 
+//color swatches row
   for( var i = 1; i <= 12; i++ ){
     var colorRow = document.createElement( 'div' );
     colorRow.id = 'colorRow' + i;
     colorRow.className = 'colorRow';
     colors.appendChild( colorRow );
 
+  //color swatches
     for( var j = 1; j <= 6; j++ ){
       var colorBtn = document.createElement( 'div' );
       colorBtn.id = 'colorBtn' + j;
@@ -59,13 +60,9 @@ window.onload = function() {
         newColor = this.style.background;
         return newColor;
       });
-
     }
   }
-  var stroke = false;
-  var undoArray = [];
 
-  //ELEMENT DIV pixelGrid
   var pixelGrid = document.createElement( 'div' );
     pixelGrid.className = 'pixelGrid';
     main.appendChild( pixelGrid );
@@ -84,29 +81,40 @@ window.onload = function() {
 
       //when click current color will appear
       canPixels.addEventListener( 'click', function() {//<---------click fn
-        var stroke = true;
-          console.log(stroke);//<-----------------------------------stroke
+
+        undoArr.push( canPixels );
+        this.style.background = newColor;
+        dragColor = newColor;
+        return dragColor;
 
         if( dragColor === this.style.background ){
           dragColor = !newColor;
           return dragColor;
         }
 
-        this.style.background = newColor;
-        dragColor = newColor;
-        return dragColor;
+        //returns stroke to true while pushing canPixels to undoArr
+        if( stroke === false ){
+          stroke = true;
+          console.log( undoArr );
+          console.log( stroke );
+          return stroke;
+        } else {
+          stroke = false;
+          console.log( stroke );
+          return stroke;
+        }
 
       });
 
-      //then when dragged, will appear current color
+      //when dragged, will appear current color
       canPixels.addEventListener( 'mouseover', function() {
         this.style.background = dragColor;
 
-        while( stroke === true ){
-          undoArray.push( canPixels );
-          console.log(undoArray);//<---------------------------------push!
-          return undoArray;
-        }
+        // while( stroke === true ){
+        //   undoArr.push( canPixels );
+        //   console.log( undoArr );
+        // }
+
       });
     }
   }
@@ -116,7 +124,7 @@ window.onload = function() {
   document.getElementById('colorBtn3').style.background = 'blue';
   document.getElementById('colorBtn4').style.background = 'pink';
   document.getElementById('colorBtn5').style.background = 'green';
-  document.getElementById('colorBtn6').style.background = 'turquoise';
+  document.getElementById('colorBtn6').style.background = 'purple';
 
 
 
@@ -125,9 +133,3 @@ window.onload = function() {
 
 
 };
-
-//whaaaaazzzuuuuppppp forkerrrrrrr!!!!
-
-//spooning leads to forking!!!!!!!!
-
-//updates live or nah?????
