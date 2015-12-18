@@ -73,13 +73,13 @@ window.onload = function() {
     pixelGrid.className = 'pixelGrid';
     rightScreen.appendChild( pixelGrid );
 
-  for( var k = 1; k <= 50; k++ ){
+  for( var k = 1; k <= 75; k++ ){
     var canvasRow = document.createElement( 'div' );
     canvasRow.id = 'canvasRow';
     canvasRow.className = 'canvasRow' + k;
     pixelGrid.appendChild( canvasRow );
 
-    for( var p = 1; p <= 50; p++ ){
+    for( var p = 1; p <= 80 ; p++ ){
       var canPixels = document.createElement( 'div' );
       canPixels.id = 'canPixels' + p;
       canPixels.className = 'canPixels';
@@ -88,27 +88,27 @@ window.onload = function() {
       //when click current color will appear
       canPixels.addEventListener( 'click', function() {//<---------click fn
 
-        undoArr.push( canPixels );
-        this.style.background = newColor;
-        dragColor = newColor;
-        return dragColor;
-
         if( dragColor === this.style.background ){
           dragColor = !newColor;
           return dragColor;
         }
+        //undoArr.push( canPixels );
+        this.style.background = newColor;
+        dragColor = newColor;
+        return dragColor;
+
 
         //returns stroke to true while pushing canPixels to undoArr
-        if( stroke === false ){
-          stroke = true;
-          console.log( undoArr );
-          console.log( stroke );
-          return stroke;
-        } else {
-          stroke = false;
-          console.log( stroke );
-          return stroke;
-        }
+        // if( stroke === false ){
+        //   stroke = true;
+        //   console.log( undoArr );
+        //   console.log( stroke );
+        //   return stroke;
+        // } else {
+        //   stroke = false;
+        //   console.log( stroke );
+        //   return stroke;
+        // }
 
       });
 
@@ -143,6 +143,7 @@ window.onload = function() {
 
   var eraseBtn = document.createElement('div');
     eraseBtn.id = 'eraseBtn';
+    eraseBtn.className = 'fnButtons';
     funButtons.appendChild(eraseBtn);
     document.getElementById( 'eraseBtn').innerHTML = 'Erase';
 
@@ -156,6 +157,7 @@ window.onload = function() {
 
   var clearBtn = document.createElement('div');
     clearBtn.id = 'clearBtn';
+    clearBtn.className = 'fnButtons';
     funButtons.appendChild(clearBtn);
     document.getElementById( 'clearBtn').innerHTML = 'Clear';
 
@@ -163,13 +165,24 @@ window.onload = function() {
       var wholeGrid = canPixels;
       wholeGrid.style.background = '#ffffff';
       console.log(canPixels[p].style.background);
-
     });
 
-  var undoButton = document.createElement( 'button' );//<------------button element
-    undoButton.className = 'undoButton';
+
+  var copyButton = document.createElement( 'div' );//<------------button element
+    copyButton.id = 'copyButton';
+    copyButton.className = 'fnButtons';
+    funButtons.appendChild( copyButton );
+    document.getElementById( 'copyButton').innerHTML = 'Copy';
+
+  var pasteButton = document.createElement( 'div' );//<------------button element
+    pasteButton.id = 'pasteButton';
+    pasteButton.className = 'fnButtons';
+    funButtons.appendChild( pasteButton );
+    document.getElementById( 'pasteButton' ).innerHTML = 'Paste';
+
+  var undoButton = document.createElement( 'div' );//<------------button element
+    undoButton.id = 'undoButton';
+    undoButton.className = 'fnButtons';
     funButtons.appendChild( undoButton );
-
-
-
-};
+    document.getElementById( 'undoButton').innerHTML = 'Undo';
+};//end of function
