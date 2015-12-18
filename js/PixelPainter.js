@@ -35,13 +35,18 @@ window.onload = function() {
 
   var main = document.getElementById( 'pixelPainter' );
 
+  //div for color and button
+  var leftScreen = document.createElement( 'div' );
+    leftScreen.className = 'leftScreen';
+    main.appendChild( leftScreen );
+
+  var rightScreen = document.createElement( 'div' );
+    rightScreen.className = 'rightScreen';
+    main.appendChild( rightScreen );
+
   var colors = document.createElement( 'div' );
     colors.className = 'colorGrid';
-    main.appendChild( colors );
-
-  var undoButton = document.createElement( 'button' );//<------------button element
-    undoButton.className = 'undoButton';
-    main.appendChild( undoButton );
+    leftScreen.appendChild( colors );
 
 //color swatches row
   for( var i = 1; i <= 12; i++ ){
@@ -66,7 +71,7 @@ window.onload = function() {
 
   var pixelGrid = document.createElement( 'div' );
     pixelGrid.className = 'pixelGrid';
-    main.appendChild( pixelGrid );
+    rightScreen.appendChild( pixelGrid );
 
   for( var k = 1; k <= 50; k++ ){
     var canvasRow = document.createElement( 'div' );
@@ -128,32 +133,38 @@ window.onload = function() {
   document.getElementById('colorBtn6').style.background = 'purple';
 
 
+  var funButtons = document.createElement('div');
+    funButtons.className = 'funButtons';
+    leftScreen.appendChild(funButtons);
+
   var eraseBtn = document.createElement('div');
     eraseBtn.id = 'eraseBtn';
-    main.appendChild(eraseBtn);
+    funButtons.appendChild(eraseBtn);
     document.getElementById( 'eraseBtn').innerHTML = 'Erase';
 
   //document.getElementById('eraseBtn').style.background = 'none';
   eraseBtn.addEventListener('click', function(){
-        newColor = this.style.background;
-        console.log(newColor);
-        return newColor;
+    newColor = this.style.background;
+    console.log(newColor);
+    return newColor;
 
-      });
-
+  });
 
   var clearBtn = document.createElement('div');
-  clearBtn.id = 'clearBtn';
-  main.appendChild(clearBtn);
-  document.getElementById( 'clearBtn').innerHTML = 'Clear';
+    clearBtn.id = 'clearBtn';
+    funButtons.appendChild(clearBtn);
+    document.getElementById( 'clearBtn').innerHTML = 'Clear';
 
   clearBtn.addEventListener('click', function(){
-        var wholeGrid = canPixels;
-        wholeGrid.style.background = '#ffffff';
-        console.log(canPixels[p].style.background);
+      var wholeGrid = canPixels;
+      wholeGrid.style.background = '#ffffff';
+      console.log(canPixels[p].style.background);
 
-      });
+    });
 
+  var undoButton = document.createElement( 'button' );//<------------button element
+    undoButton.className = 'undoButton';
+    funButtons.appendChild( undoButton );
 
 
 
