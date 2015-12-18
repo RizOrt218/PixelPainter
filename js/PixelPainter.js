@@ -10,6 +10,7 @@
 
   //   this.swatch = new ColorBtn();
 
+
   // }
 
   // ColorSwatch.prototype = Object.create( PixelPainter.prototype );
@@ -127,7 +128,31 @@ window.onload = function() {
   document.getElementById('colorBtn6').style.background = 'purple';
 
 
+  var eraseBtn = document.createElement('div');
+    eraseBtn.id = 'eraseBtn';
+    main.appendChild(eraseBtn);
+    document.getElementById( 'eraseBtn').innerHTML = 'Erase';
 
+  //document.getElementById('eraseBtn').style.background = 'none';
+  eraseBtn.addEventListener('click', function(){
+        newColor = this.style.background;
+        console.log(newColor);
+        return newColor;
+
+      });
+
+
+  var clearBtn = document.createElement('div');
+  clearBtn.id = 'clearBtn';
+  main.appendChild(clearBtn);
+  document.getElementById( 'clearBtn').innerHTML = 'Clear';
+
+  clearBtn.addEventListener('click', function(){
+        var wholeGrid = canPixels;
+        wholeGrid.style.background = '#ffffff';
+        console.log(canPixels[p].style.background);
+
+      });
 
 
 
