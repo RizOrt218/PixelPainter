@@ -1,37 +1,9 @@
-  // function PixelPainter ( name ){
-  //   this._name = name;
-  // }
-
-  // function ColorSwatch ( height, width ){
-  //   this._height = height;
-  //   this._width = width;
-
-  //   []
-
-  //   this.swatch = new ColorBtn();
-
-
-  // }
-
-  // ColorSwatch.prototype = Object.create( PixelPainter.prototype );
-
-  // function ColorBtn ( color ){
-  //   this._color = color;
-
-  //   var colors = []
-
-  // }
-
-  // ColorBtn.prototype = Object.create( ColorSwatch.prototype );
-
-  //create function to show default color swatch
-
 window.onload = function() {
 
   var newColor;
   var dragColor;
   var stroke = false;
-  var undoArr = [];
+  var strokeArray = [];
   var colorArray = [];
 
 
@@ -73,32 +45,34 @@ window.onload = function() {
       colorBtn.addEventListener( 'click', function() {
         newColor = this.style.background;
         document.getElementById( 'header' ).style.color = newColor;
+        document.getElementById( 'pixGrid' ).style.color = newColor;
         return newColor;
       });
     }
   }
 
-  var pixelGrid = document.createElement( 'div' );
+  var pixelGrid = document.createElement( 'table' );
+    pixelGrid.id = 'pixGrid';
     pixelGrid.className = 'pixelGrid';
     rightScreen.appendChild( pixelGrid );
 
-  for( var k = 1; k <= 90; k++ ){
-    var canvasRow = document.createElement( 'div' );
+  for( var k = 1; k <= 100; k++ ){
+    var canvasRow = document.createElement( 'tr' );
     canvasRow.id = 'canvasRow';
     canvasRow.className = 'canvasRow' + k;
     pixelGrid.appendChild( canvasRow );
 
-    for( var p = 1; p <= 120 ; p++ ){
-      var canPixels = document.createElement( 'div' );
-      canPixels.style.background = '#ffffff';
+    for( var p = 1; p <= 100 ; p++ ){
+      var canPixels = document.createElement( 'td' );
       canPixels.id = 'canPixels' + p;
       canPixels.className = 'canPixels';
+      canPixels.style.background = '#ffffff';
       canvasRow.appendChild( canPixels );
 
       //when click current color will appear
       canPixels.addEventListener( 'click', function() {//<---------click fn
 
-        undoArr.push( this );
+        strokeArray.push( this );
 
         if( stroke === false ){
           stroke = true;
@@ -115,7 +89,7 @@ window.onload = function() {
 
         while( stroke === true ){
           this.style.background = newColor;
-          undoArr.push( this );
+          strokeArray.push( this );
 
           if ( stroke === false );
             return false;
@@ -135,6 +109,21 @@ window.onload = function() {
   document.getElementById('colorBtn9').style.background = '#000000';
   document.getElementById('colorBtn10').style.background = '#FFFFFF';
 
+  var bgImageArray = [ 'http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
+
+  var imageRow = document.createElement( 'div' );
+    imageRow.id = 'imageRow';
+    rightScreen.appendChild( imageRow );
+
+
+    document.getElementById( 'imageRow' ).innerHTML = '<img src="http://tinyurl.com/ouxd22u"/>';
+
+
+    imageRow.addEventListener('click', function() {
+      var string = "url('http://tinyurl.com/ouxd22u')";
+      pixelGrid.style.backgroundImage = string;
+    });
+
 
   var funButtons = document.createElement('div');
     funButtons.id = 'funButtons';
@@ -145,10 +134,10 @@ window.onload = function() {
     eraseBtn.id = 'eraseBtn';
     eraseBtn.className = 'fnButtons';
     funButtons.appendChild(eraseBtn);
-    document.getElementById( 'eraseBtn').innerHTML = 'Erase';
+    document.getElementById( 'eraseBtn' ).innerHTML = 'Erase';
 
   //document.getElementById('eraseBtn').style.background = 'none';
-  eraseBtn.addEventListener('click', function(){
+  eraseBtn.addEventListener('click', function() {
     newColor = this.style.background;
     console.log(newColor);
     return newColor;
@@ -159,15 +148,12 @@ window.onload = function() {
     clearBtn.id = 'clearBtn';
     clearBtn.className = 'fnButtons';
     funButtons.appendChild(clearBtn);
-    document.getElementById( 'clearBtn').innerHTML = 'Clear';
+    document.getElementById( 'clearBtn' ).innerHTML = 'Clear';
 
-  clearBtn.addEventListener('click', function(){
-      for( var i = 0; i < undoArr.length; i++ ){
-        undoArr[i].style.background = '#ffffff';
+  clearBtn.addEventListener('click', function() {
+      for( var i = 0; i < strokeArray.length; i++ ){
+        strokeArray[i].style.background = '#ffffff';
       }
-      // var wholeGrid = canPixels;
-      // wholeGrid.style.background = '#ffffff';
-      //console.log(canPixels[p].style.background);
     });
 
 
@@ -190,11 +176,11 @@ window.onload = function() {
     document.getElementById( 'undoButton').innerHTML = 'Undo';
 
     document.getElementById('undoButton').addEventListener('click',function(){
-      // var length = undoArr.length - 1;
-      // console.log(undoArr);
+      // var length = strokeArray.length - 1;
+      // console.log(strokeArray);
       // console.log(colorArray);
-      // undoArr[length].style.background = colorArray[length];
-      // undoArr.splice(length,1);
+      // strokeArray[length].style.background = colorArray[length];
+      // strokeArray.splice(length,1);
       // colorArray.splice(length,1);
 
 
