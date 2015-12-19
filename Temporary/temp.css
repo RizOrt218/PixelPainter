@@ -1,0 +1,18 @@
+.colorGrid {
+  height: 500px;
+  width: 500px;
+  background-color: black;
+}
+
+.starterColors {
+  height: 100%;
+  width: 20%;
+  background-color: gray;
+}
+
+.starterColorBtn {
+  height: 5%;
+  width: 100%;
+  background-color: yellow;
+  border: ;
+}
