@@ -45,7 +45,7 @@ window.onload = function() {
       colorBtn.addEventListener( 'click', function() {
         newColor = this.style.background;
         document.getElementById( 'header' ).style.color = newColor;
-        document.getElementById( 'pixGrid' ).style.color = newColor;
+        //document.getElementById( 'pixGrid' ).style.color = newColor;
         return newColor;
       });
     }
