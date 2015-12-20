@@ -1,37 +1,11 @@
-  // function PixelPainter ( name ){
-  //   this._name = name;
-  // }
-
-  // function ColorSwatch ( height, width ){
-  //   this._height = height;
-  //   this._width = width;
-
-  //   []
-
-  //   this.swatch = new ColorBtn();
-
-
-  // }
-
-  // ColorSwatch.prototype = Object.create( PixelPainter.prototype );
-
-  // function ColorBtn ( color ){
-  //   this._color = color;
-
-  //   var colors = []
-
-  // }
-
-  // ColorBtn.prototype = Object.create( ColorSwatch.prototype );
-
-  //create function to show default color swatch
-
 window.onload = function() {
 
   var newColor;
   var dragColor;
   var stroke = false;
-  var undoArr = [];
+  var strokeArray = [];
+  var colorArray = [];
+
 
   var main = document.getElementById( 'pixelPainter' );
 
@@ -48,9 +22,17 @@ window.onload = function() {
     colorGrid.className = 'colorGrid';
     leftScreen.appendChild( colorGrid );
 
+<<<<<<< HEAD:js/PixelPainter.js
   var swatchLandingArea = document.createElement( 'div');
     swatchLandingArea.className = 'swatchLandingArea';
     colorGrid.appendChild( swatchLandingArea );
+=======
+  var header = document.createElement( 'h1' );
+    header.id = 'header';
+    rightScreen.appendChild( header );
+    document.getElementById( 'header' ).innerHTML = 'PixelPainter';
+
+>>>>>>> more_css:public/js/PixelPainter.js
 
 //Starter colors on left side
   for( var i = 1; i <= 1; i++ ){
@@ -87,11 +69,14 @@ window.onload = function() {
 
       redSwatchBtn.addEventListener( 'click', function() {
         newColor = this.style.background;
+        document.getElementById( 'header' ).style.color = newColor;
+        //document.getElementById( 'pixGrid' ).style.color = newColor;
         return newColor;
       });
     }
   }
 
+<<<<<<< HEAD:js/PixelPainter.js
 //Color swatch rows
   // for( var m = 1; m <= 1; m++ ) {
   //   var colorSwatchRow = document.createElement( 'div' );
@@ -106,57 +91,49 @@ window.onload = function() {
   //Color swatch buttons
 
   var pixelGrid = document.createElement( 'div' );
+=======
+  var pixelGrid = document.createElement( 'table' );
+    pixelGrid.id = 'pixGrid';
+>>>>>>> more_css:public/js/PixelPainter.js
     pixelGrid.className = 'pixelGrid';
     rightScreen.appendChild( pixelGrid );
 
-  for( var k = 1; k <= 75; k++ ){
-    var canvasRow = document.createElement( 'div' );
+  for( var k = 1; k <= 100; k++ ){
+    var canvasRow = document.createElement( 'tr' );
     canvasRow.id = 'canvasRow';
     canvasRow.className = 'canvasRow' + k;
     pixelGrid.appendChild( canvasRow );
 
-    for( var p = 1; p <= 80 ; p++ ){
-      var canPixels = document.createElement( 'div' );
+    for( var p = 1; p <= 100 ; p++ ){
+      var canPixels = document.createElement( 'td' );
       canPixels.id = 'canPixels' + p;
       canPixels.className = 'canPixels';
+      canPixels.style.background = '#ffffff';
       canvasRow.appendChild( canPixels );
 
       //when click current color will appear
       canPixels.addEventListener( 'click', function() {//<---------click fn
 
-        if( dragColor === this.style.background ){
-          dragColor = !newColor;
-          return dragColor;
+        strokeArray.push( this );
+
+        if( stroke === false ){
+          stroke = true;
+          this.style.background = newColor;
+          return stroke;
+        } else {
+          stroke = false;
+          return stroke;
         }
-        //undoArr.push( canPixels );
-        this.style.background = newColor;
-        dragColor = newColor;
-        return dragColor;
-
-
-        //returns stroke to true while pushing canPixels to undoArr
-        // if( stroke === false ){
-        //   stroke = true;
-        //   console.log( undoArr );
-        //   console.log( stroke );
-        //   return stroke;
-        // } else {
-        //   stroke = false;
-        //   console.log( stroke );
-        //   return stroke;
-        // }
-
       });
 
       //when dragged, will appear current color
       canPixels.addEventListener( 'mouseover', function() {
-        this.style.background = dragColor;
-
-        // while( stroke === true ){
-        //   undoArr.push( canPixels );
-        //   console.log( undoArr );
-        // }
-
+        while( stroke === true ){
+          this.style.background = newColor;
+          strokeArray.push( this );
+        if ( stroke === false );
+          return false;
+        }
       });
     }
   }
@@ -178,8 +155,24 @@ window.onload = function() {
   document.getElementById('redSwatchBtn4').style.background = '#ff3333';
   document.getElementById('redSwatchBtn5').style.background = '#ff6666';
 
+  var bgImageArray = ['http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
+
+  var imageRow = document.createElement( 'div' );
+    imageRow.id = 'imageRow';
+    rightScreen.appendChild( imageRow );
+
+
+    document.getElementById( 'imageRow' ).innerHTML = '<img src="http://tinyurl.com/ouxd22u"/>';
+
+
+    imageRow.addEventListener('click', function() {
+      var string = "url('http://tinyurl.com/ouxd22u')";
+      pixelGrid.style.backgroundImage = string;
+    });
+
 
   var funButtons = document.createElement('div');
+    funButtons.id = 'funButtons';
     funButtons.className = 'funButtons';
     leftScreen.appendChild(funButtons);
 
@@ -187,10 +180,10 @@ window.onload = function() {
     eraseBtn.id = 'eraseBtn';
     eraseBtn.className = 'fnButtons';
     funButtons.appendChild(eraseBtn);
-    document.getElementById( 'eraseBtn').innerHTML = 'Erase';
+    document.getElementById( 'eraseBtn' ).innerHTML = 'Erase';
 
   //document.getElementById('eraseBtn').style.background = 'none';
-  eraseBtn.addEventListener('click', function(){
+  eraseBtn.addEventListener('click', function() {
     newColor = this.style.background;
     console.log(newColor);
     return newColor;
@@ -201,12 +194,12 @@ window.onload = function() {
     clearBtn.id = 'clearBtn';
     clearBtn.className = 'fnButtons';
     funButtons.appendChild(clearBtn);
-    document.getElementById( 'clearBtn').innerHTML = 'Clear';
+    document.getElementById( 'clearBtn' ).innerHTML = 'Clear';
 
-  clearBtn.addEventListener('click', function(){
-      var wholeGrid = canPixels;
-      wholeGrid.style.background = '#ffffff';
-      console.log(canPixels[p].style.background);
+  clearBtn.addEventListener('click', function() {
+      for( var i = 0; i < strokeArray.length; i++ ){
+        strokeArray[i].style.background = '#ffffff';
+      }
     });
 
 
@@ -227,4 +220,15 @@ window.onload = function() {
     undoButton.className = 'fnButtons';
     funButtons.appendChild( undoButton );
     document.getElementById( 'undoButton').innerHTML = 'Undo';
+
+    document.getElementById('undoButton').addEventListener('click',function(){
+      // var length = strokeArray.length - 1;
+      // console.log(strokeArray);
+      // console.log(colorArray);
+      // strokeArray[length].style.background = colorArray[length];
+      // strokeArray.splice(length,1);
+      // colorArray.splice(length,1);
+
+
+    });
 };//end of function
