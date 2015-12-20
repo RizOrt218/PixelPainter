@@ -48,6 +48,10 @@ window.onload = function() {
     colorGrid.className = 'colorGrid';
     leftScreen.appendChild( colorGrid );
 
+  var swatchLandingArea = document.createElement( 'div');
+    swatchLandingArea.className = 'swatchLandingArea';
+    colorGrid.appendChild( swatchLandingArea );
+
 //Starter colors on left side
   for( var i = 1; i <= 1; i++ ){
     var starterColors = document.createElement( 'div' );
@@ -55,19 +59,51 @@ window.onload = function() {
     starterColors.className = 'starterColors';
     colorGrid.appendChild( starterColors );
 
-  //color swatches
+  //Starter color buttons
     for( var j = 1; j <= 10; j++ ){
-      var colorBtn = document.createElement( 'div' );
-      colorBtn.id = 'colorBtn' + j;
-      colorBtn.className = 'colorBtn';
-      starterColors.appendChild( colorBtn );
+      var starterColorBtn = document.createElement( 'div' );
+      starterColorBtn.id = 'starterColorBtn' + j;
+      starterColorBtn.className = 'starterColorBtn';
+      starterColors.appendChild( starterColorBtn );
 
-      colorBtn.addEventListener( 'click', function() {
+
+      starterColorBtn.addEventListener( 'click', function() {
+        newColor = this.style.background;
+        return newColor;
+      });
+    }
+
+    //===========Red Color Swatch
+
+    var redSwatchRow = document.createElement( 'div' );
+    redSwatchRow.className = 'redSwatchRow';
+    swatchLandingArea.appendChild( redSwatchRow );
+
+    for( var n = 1; n <= 5; n++ ) {
+      var redSwatchBtn = document.createElement( 'div' );
+      redSwatchBtn.id = 'redSwatchBtn' + n;
+      redSwatchBtn.className = 'redSwatchBtn';
+      redSwatchRow.appendChild( redSwatchBtn );
+
+      redSwatchBtn.addEventListener( 'click', function() {
         newColor = this.style.background;
         return newColor;
       });
     }
   }
+
+//Color swatch rows
+  // for( var m = 1; m <= 1; m++ ) {
+  //   var colorSwatchRow = document.createElement( 'div' );
+  //   colorSwatchRow.id = 'colorSwatchRow' + m;
+  //   colorSwatchRow.className = 'colorSwatchRow';
+  //   swatchLandingArea.appendChild( colorSwatchRow );
+
+  //   var redSwatchRow = document.createElement( 'div' );
+  //   redSwatchRow.className = 'redSwatchRow';
+
+
+  //Color swatch buttons
 
   var pixelGrid = document.createElement( 'div' );
     pixelGrid.className = 'pixelGrid';
@@ -125,16 +161,22 @@ window.onload = function() {
     }
   }
 
-  document.getElementById('colorBtn1').style.background = '#FF0000';
-  document.getElementById('colorBtn2').style.background = '#F56905';
-  document.getElementById('colorBtn3').style.background = '#F5E505';
-  document.getElementById('colorBtn4').style.background = '#038C05';
-  document.getElementById('colorBtn5').style.background = '#0034C2';
-  document.getElementById('colorBtn6').style.background = '#6E00C2';
-  document.getElementById('colorBtn7').style.background = '#C2009E';
-  document.getElementById('colorBtn8').style.background = '#5C2B00';
-  document.getElementById('colorBtn9').style.background = '#000000';
-  document.getElementById('colorBtn10').style.background = '#FFFFFF';
+  document.getElementById('starterColorBtn1').style.background = '#FF0000';
+  document.getElementById('starterColorBtn2').style.background = '#F56905';
+  document.getElementById('starterColorBtn3').style.background = '#F5E505';
+  document.getElementById('starterColorBtn4').style.background = '#038C05';
+  document.getElementById('starterColorBtn5').style.background = '#0034C2';
+  document.getElementById('starterColorBtn6').style.background = '#6E00C2';
+  document.getElementById('starterColorBtn7').style.background = '#C2009E';
+  document.getElementById('starterColorBtn8').style.background = '#5C2B00';
+  document.getElementById('starterColorBtn9').style.background = '#000000';
+  document.getElementById('starterColorBtn10').style.background = '#FFFFFF';
+
+  document.getElementById('redSwatchBtn1').style.background = '#990000';
+  document.getElementById('redSwatchBtn2').style.background = '#cc0000';
+  document.getElementById('redSwatchBtn3').style.background = '#ff0000';
+  document.getElementById('redSwatchBtn4').style.background = '#ff3333';
+  document.getElementById('redSwatchBtn5').style.background = '#ff6666';
 
 
   var funButtons = document.createElement('div');
