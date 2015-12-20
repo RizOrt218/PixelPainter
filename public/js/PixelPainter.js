@@ -86,13 +86,11 @@ window.onload = function() {
 
       //when dragged, will appear current color
       canPixels.addEventListener( 'mouseover', function() {
-
         while( stroke === true ){
           this.style.background = newColor;
           strokeArray.push( this );
-
-          if ( stroke === false );
-            return false;
+        if ( stroke === false );
+          return false;
         }
       });
     }
@@ -109,7 +107,7 @@ window.onload = function() {
   document.getElementById('colorBtn9').style.background = '#000000';
   document.getElementById('colorBtn10').style.background = '#FFFFFF';
 
-  var bgImageArray = [ 'http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
+  var bgImageArray = ['http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
 
   var imageRow = document.createElement( 'div' );
     imageRow.id = 'imageRow';
