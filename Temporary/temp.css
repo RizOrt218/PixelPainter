@@ -1,18 +1,30 @@
 .colorGrid {
   height: 500px;
-  width: 500px;
-  background-color: black;
+  width: 300px;
+  background-color: gray;
 }
 
 .starterColors {
   height: 100%;
-  width: 20%;
-  background-color: gray;
+  width: 10%;
+  float: left;
 }
 
 .starterColorBtn {
-  height: 5%;
+  height: 10%;
   width: 100%;
+}
+
+
+.swatchLandingArea {
+  height: 100%;
+  width: 90%;
+  float: right;
   background-color: yellow;
-  border: ;
+}
+
+.gradientBtn {
+  height: 10%;
+  width: 12.5%;
+  display: inline-block;
 }
