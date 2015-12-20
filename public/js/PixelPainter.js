@@ -18,83 +18,174 @@ window.onload = function() {
     rightScreen.className = 'rightScreen';
     main.appendChild( rightScreen );
 
-  var colorGrid = document.createElement( 'div' );
-    colorGrid.className = 'colorGrid';
-    leftScreen.appendChild( colorGrid );
-
-<<<<<<< HEAD:js/PixelPainter.js
-  var swatchLandingArea = document.createElement( 'div');
-    swatchLandingArea.className = 'swatchLandingArea';
-    colorGrid.appendChild( swatchLandingArea );
-=======
   var header = document.createElement( 'h1' );
     header.id = 'header';
     rightScreen.appendChild( header );
     document.getElementById( 'header' ).innerHTML = 'PixelPainter';
 
->>>>>>> more_css:public/js/PixelPainter.js
+//=======================jQuery Color Swatch============================
+//================= div for entire color swatch area
+  var colorGrid = $( '<div>' );
+  colorGrid
+    .addClass( 'colorGrid' )
+  ;
+  $( 'div.leftScreen' ).append( colorGrid );
 
-//Starter colors on left side
-  for( var i = 1; i <= 1; i++ ){
-    var starterColors = document.createElement( 'div' );
-    starterColors.id = 'starterColors' + i;
-    starterColors.className = 'starterColors';
-    colorGrid.appendChild( starterColors );
+//================= div for all starting primary colors
+  var starterColors = $( '<div>' );
+  starterColors
+    .addClass( 'starterColors')
+  ;
+  $( 'div.colorGrid' ).append( starterColors );
 
-  //Starter color buttons
-    for( var j = 1; j <= 10; j++ ){
-      var starterColorBtn = document.createElement( 'div' );
-      starterColorBtn.id = 'starterColorBtn' + j;
-      starterColorBtn.className = 'starterColorBtn';
-      starterColors.appendChild( starterColorBtn );
+//================= div for each starting color button individually
+  var colorArr = ['#ff0000', '#ff8000', '#ffff00','#00ff00', '#0000ff', '#7f00ff', '#ff00bf', '#4d2600', '#ffffff', '#000000'];
 
-
-      starterColorBtn.addEventListener( 'click', function() {
-        newColor = this.style.background;
-        return newColor;
-      });
-    }
-
-    //===========Red Color Swatch
-
-    var redSwatchRow = document.createElement( 'div' );
-    redSwatchRow.className = 'redSwatchRow';
-    swatchLandingArea.appendChild( redSwatchRow );
-
-    for( var n = 1; n <= 5; n++ ) {
-      var redSwatchBtn = document.createElement( 'div' );
-      redSwatchBtn.id = 'redSwatchBtn' + n;
-      redSwatchBtn.className = 'redSwatchBtn';
-      redSwatchRow.appendChild( redSwatchBtn );
-
-      redSwatchBtn.addEventListener( 'click', function() {
-        newColor = this.style.background;
-        document.getElementById( 'header' ).style.color = newColor;
-        //document.getElementById( 'pixGrid' ).style.color = newColor;
-        return newColor;
-      });
-    }
+  for ( var i = 0; i < colorArr.length; i++ ) {
+    var starterColorBtn = $( '<div>' );
+    starterColorBtn
+      .addClass( 'starterColorBtn' )
+      .css( 'background-color', colorArr[i] )
+      ;
+    $( 'div.starterColors' ).append( starterColorBtn );
   }
 
-<<<<<<< HEAD:js/PixelPainter.js
-//Color swatch rows
-  // for( var m = 1; m <= 1; m++ ) {
-  //   var colorSwatchRow = document.createElement( 'div' );
-  //   colorSwatchRow.id = 'colorSwatchRow' + m;
-  //   colorSwatchRow.className = 'colorSwatchRow';
-  //   swatchLandingArea.appendChild( colorSwatchRow );
+//================= div for color swatch landing area
+  var swatchLandingArea = $( '<div>');
+  swatchLandingArea
+    .addClass( 'swatchLandingArea' )
+  ;
+  $( 'div.colorGrid' ).append( swatchLandingArea );
 
-  //   var redSwatchRow = document.createElement( 'div' );
-  //   redSwatchRow.className = 'redSwatchRow';
+//================= Red color swatch
+  var redArr = ['#330000', '#660000', '#990000', '#cc0000', '#ff0000', '#ff3333', '#ff6666', '#ff9999'];
 
+  // var redSwatch = $( '<div>' );
+  // redSwatch
+  //   .addClass( 'redSwatch' )
+  // ;
+  // $( 'div.swatchLandingArea').append( redSwatch );
 
-  //Color swatch buttons
+  for ( var j = 0; j < redArr.length; j++ ) {
+    var redBtn = $( '<div>' );
+    redBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', redArr[j])
+    ;
+    $( 'div.swatchLandingArea' ).append( redBtn );
+  }
 
-  var pixelGrid = document.createElement( 'div' );
-=======
+//================= Orange color swatch
+  var orangeArr = ['#331a00', '#663300', '#994d00', '#cc6600', '#ff8000', '#ff9933', '#ffb366', '#ffcc99'];
+
+  for ( var k = 0; k < orangeArr.length; k++ ) {
+    var orangeBtn = $( '<div>' );
+    orangeBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', orangeArr[k])
+    ;
+    $( 'div.swatchLandingArea' ).append( orangeBtn );
+  }
+
+//================= Yellow color swatch
+  var yellowArr = ['#333300', '#666600', '#999900', '#cccc00', '#ffff00', '#ffff33', '#ffff66', '#ffff99'];
+
+  for ( var m = 0; m < yellowArr.length; m++ ) {
+    var yellowBtn = $( '<div>' );
+    yellowBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', yellowArr[m])
+    ;
+    $( 'div.swatchLandingArea' ).append( yellowBtn );
+  }
+
+//================= Green color swatch
+  var greenArr = ['#003300', '#006600', '#009900', '#00cc00', '#00ff00', '#33ff33', '#66ff66', '#99ff99'];
+
+  for ( var n = 0; n < greenArr.length; n++ ) {
+    var greenBtn = $( '<div>' );
+    greenBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', greenArr[n])
+    ;
+    $( 'div.swatchLandingArea' ).append( greenBtn );
+  }
+
+//================= Blue color swatch
+  var blueaArr = ['#000033', '#000066', '#000099', '#0000cc', '#0000ff', '#3333ff', '#6666ff', '#9999ff'];
+
+  for ( var o = 0; o < blueaArr.length; o++ ) {
+    var blueBtn = $( '<div>' );
+    blueBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', blueaArr[o])
+    ;
+    $( 'div.swatchLandingArea' ).append( blueBtn );
+  }
+
+//================= Indigo color swatch
+  var indigoArr = ['#190033', '#330066', '#4c0099', '#6600cc', '#7f00ff', '#9933ff', '#b266ff', '#cc99ff'];
+
+  for ( var p = 0; p < indigoArr.length; p++ ) {
+    var indigoBtn = $( '<div>' );
+    indigoBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', indigoArr[p])
+    ;
+    $( 'div.swatchLandingArea' ).append( indigoBtn );
+  }
+
+//================= Violet color swatch
+  var violetArr = ['#330026', '#66004c', '#990073', '#cc0099', '#ff00bf', '#ff33cc', '#ff66d9', '#ff99e5'];
+
+  for ( var q = 0; q < violetArr.length; q++ ) {
+    var violetBtn = $( '<div>' );
+    violetBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', violetArr[q])
+    ;
+    $( 'div.swatchLandingArea' ).append( violetBtn );
+  }
+
+//================= Brown color swatch
+  var brownArr = ['#1a0d00', '#331900', '#4d2600', '#663200', '#803f00', '#994c00', '#b35800', '#cc6500'];
+
+  for ( var r = 0; r < brownArr.length; r++ ) {
+    var brownBtn = $( '<div>' );
+    brownBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', brownArr[r])
+    ;
+    $( 'div.swatchLandingArea' ).append( brownBtn );
+  }
+
+//================= White color swatch
+  var whiteArr = ['#4d4d4d', '#666666', '#808080', '#999999', '#b3b3b3', '#cccccc', '#e6e6e6', '#ffffff'];
+
+  for ( var s = 0; s < whiteArr.length; s++ ) {
+    var whiteBtn = $( '<div>' );
+    whiteBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', whiteArr[s])
+    ;
+    $( 'div.swatchLandingArea' ).append( whiteBtn );
+  }
+
+//================= Black color swatch
+  var blackArr = ['#0d0d0d', '#262626', '#404040', '#595959', '#737373', '#8c8c8c', '#a6a6a6', '#bfbfbf'];
+
+  for ( var t = 0; t < blackArr.length; t++ ) {
+    var blackBtn = $( '<div>' );
+    blackBtn
+      .addClass( 'gradientBtn' )
+      .css( 'background-color', blackArr[t])
+    ;
+    $( 'div.swatchLandingArea' ).append( blackBtn );
+  }
+// ========================= end of jQuery
+
   var pixelGrid = document.createElement( 'table' );
     pixelGrid.id = 'pixGrid';
->>>>>>> more_css:public/js/PixelPainter.js
     pixelGrid.className = 'pixelGrid';
     rightScreen.appendChild( pixelGrid );
 
@@ -137,23 +228,6 @@ window.onload = function() {
       });
     }
   }
-
-  document.getElementById('starterColorBtn1').style.background = '#FF0000';
-  document.getElementById('starterColorBtn2').style.background = '#F56905';
-  document.getElementById('starterColorBtn3').style.background = '#F5E505';
-  document.getElementById('starterColorBtn4').style.background = '#038C05';
-  document.getElementById('starterColorBtn5').style.background = '#0034C2';
-  document.getElementById('starterColorBtn6').style.background = '#6E00C2';
-  document.getElementById('starterColorBtn7').style.background = '#C2009E';
-  document.getElementById('starterColorBtn8').style.background = '#5C2B00';
-  document.getElementById('starterColorBtn9').style.background = '#000000';
-  document.getElementById('starterColorBtn10').style.background = '#FFFFFF';
-
-  document.getElementById('redSwatchBtn1').style.background = '#990000';
-  document.getElementById('redSwatchBtn2').style.background = '#cc0000';
-  document.getElementById('redSwatchBtn3').style.background = '#ff0000';
-  document.getElementById('redSwatchBtn4').style.background = '#ff3333';
-  document.getElementById('redSwatchBtn5').style.background = '#ff6666';
 
   var bgImageArray = ['http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
 
