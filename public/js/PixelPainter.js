@@ -42,13 +42,19 @@ window.onload = function() {
   var colorArr = ['#ff0000', '#ff8000', '#ffff00','#00ff00', '#0000ff', '#7f00ff', '#ff00bf', '#4d2600', '#ffffff', '#000000'];
 
   for ( var i = 0; i < colorArr.length; i++ ) {
-    var starterColorBtn = $( '<div>' );
+    var starterColorBtn = $( '<div>' ); //createNewElement ('div')
     starterColorBtn
-      .addClass( 'starterColorBtn' )
-      .css( 'background-color', colorArr[i] )
+      .addClass( 'starterColorBtn' ) //.className = starterColorBtn
+      .css( 'background-color', colorArr[i] )//.style.background = hexcode
       ;
-    $( 'div.starterColors' ).append( starterColorBtn );
+    $( 'div.starterColors' ).append( starterColorBtn ); //appendChild( starterColors )
   }
+
+    $( '.starterColorBtn' ).click( function() { //click fn for individual starting color btn
+      var $this = this;
+      newColor = $this.style.backgroundColor;
+      return newColor;
+    });
 
 //================= div for color swatch landing area
   var swatchLandingArea = $( '<div>');
@@ -229,21 +235,20 @@ window.onload = function() {
     }
   }
 
-  var bgImageArray = ['http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
+  // var bgImageArray = ['http://tinyurl.com/ouxd22u', 'http://tinyurl.com/pqlq2kd', 'http://tinyurl.com/nvedvg5' ];
 
-  var imageRow = document.createElement( 'div' );
-    imageRow.id = 'imageRow';
-    rightScreen.appendChild( imageRow );
-
-
-    document.getElementById( 'imageRow' ).innerHTML = '<img src="http://tinyurl.com/ouxd22u"/>';
+  // var imageRow = document.createElement( 'div' );
+  //   imageRow.id = 'imageRow';
+  //   rightScreen.appendChild( imageRow );
 
 
-    imageRow.addEventListener('click', function() {
-      var string = "url('http://tinyurl.com/ouxd22u')";
-      pixelGrid.style.backgroundImage = string;
-    });
+  //   document.getElementById( 'imageRow' ).innerHTML = '<img src="http://tinyurl.com/ouxd22u"/>';
 
+
+  //   imageRow.addEventListener('click', function() {
+  //     var string = "url('http://tinyurl.com/ouxd22u')";
+  //     pixelGrid.style.backgroundImage = string;
+  //   });
 
   var funButtons = document.createElement('div');
     funButtons.id = 'funButtons';

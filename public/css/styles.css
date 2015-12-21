@@ -108,11 +108,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   border: 8px solid white;
-  margin: 5% 25%;
+  margin: auto;
+  margin-top: 20px;
   transition: all 2s ease; }
-
-table {
-  border-collapse: collapse; }
 
 .canPixels {
   height: 5px;
@@ -148,6 +146,7 @@ table {
   background-color: #DFB169; }
 
 .colorGrid {
+  margin: 20px;
   height: 500px;
   width: 300px;
   background-color: gray; }
