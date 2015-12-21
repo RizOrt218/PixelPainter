@@ -29,7 +29,7 @@ body {
   .starterColors {
     display: flex;
     flex-flow: row wrap;
-    width: 12%;
+    width: 15%;
 
     .starterColorBtn {
       width: 100%;
@@ -43,7 +43,7 @@ body {
     flex-flow: row wrap;
 
     .gradientBtn {
-      width: 12%;
+      width: 12.5%;
     }
   }
 }
@@ -80,25 +80,28 @@ h1 {
 }
 
 //appended to leftScreen
-.fnButtons {
-  width: 20%;
-  font-family: Arial;
-  font-size: 18px;
-  color: #ffffff;
-  text-align: center;
-  text-shadow: 1px 1px 1px #000;
-  margin: 15px 10px 2px 2px;
-  padding: .5em;
-  border: solid thin #882d13;
-  background-color: #FADC9F;
-  border-radius: .1em .9em;
-  box-shadow: 2px 2px 2px #bbb;
-  display: inline-block;
-}
+#funButtons {
+  display: flex;
+  flex-flow: row nowrap;
 
+  .fnButtons {
+    width: 20%;
+    font-family: Arial;
+    font-size: 18px;
+    color: #ffffff;
+    text-align: center;
+    text-shadow: 1px 1px 1px #000;
+    margin: auto;
+    padding: .5em;
+    border: solid thin #F07B73;
+    background-color: #D2EB6A;
+    border-radius: .5em;
+    box-shadow: px 2px 2px #bbb;
+    display: inline-block;
+  }
+}
 .fnButtons:hover {
-  box-shadow: 2px 2px 2px #8E8E8E;
-  background-color: #DFB169;
+  box-shadow: 4px 4px 4px #8E8E8E;
 }
 
 @media (max-width: 360px){

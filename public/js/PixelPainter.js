@@ -284,17 +284,17 @@ window.onload = function() {
     });
 
 
-  var copyButton = document.createElement( 'div' );//<------------button element
-    copyButton.id = 'copyButton';
-    copyButton.className = 'fnButtons';
-    funButtons.appendChild( copyButton );
-    document.getElementById( 'copyButton').innerHTML = 'Copy';
+  // var copyButton = document.createElement( 'div' );//<------------button element
+  //   copyButton.id = 'copyButton';
+  //   copyButton.className = 'fnButtons';
+  //   funButtons.appendChild( copyButton );
+  //   document.getElementById( 'copyButton').innerHTML = 'Copy';
 
-  var pasteButton = document.createElement( 'div' );//<------------button element
-    pasteButton.id = 'pasteButton';
-    pasteButton.className = 'fnButtons';
-    funButtons.appendChild( pasteButton );
-    document.getElementById( 'pasteButton' ).innerHTML = 'Paste';
+  // var pasteButton = document.createElement( 'div' );//<------------button element
+  //   pasteButton.id = 'pasteButton';
+  //   pasteButton.className = 'fnButtons';
+  //   funButtons.appendChild( pasteButton );
+  //   document.getElementById( 'pasteButton' ).innerHTML = 'Paste';
 
   var undoButton = document.createElement( 'div' );//<------------button element
     undoButton.id = 'undoButton';
