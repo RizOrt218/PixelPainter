@@ -52,6 +52,7 @@ window.onload = function() {
     $( '.starterColorBtn' ).click( function retreiveColor() { //click fn for individual starting color btn
       var $this = this;
       newColor = $this.style.backgroundColor;
+      $( "h1" ).css( "color", newColor );
       console.log(newColor);
       return newColor;
     });
@@ -186,7 +187,7 @@ window.onload = function() {
    $( '.gradientBtn' ).click( function () {
       var $this = this;
       newColor = $this.style.backgroundColor;
-      console.log(newColor, [i]);
+      $( "h1" ).css( "color", newColor );
       return newColor;
     });
 // ========================= end of jQuery
@@ -196,13 +197,13 @@ window.onload = function() {
     pixelGrid.className = 'pixelGrid';
     pixelPainter.appendChild( pixelGrid );
 
-  for( var k = 1; k <= 100; k++ ){
+  for( var k = 1; k <= 110; k++ ){
     var canvasRow = document.createElement( 'tr' );
     canvasRow.id = 'canvasRow';
     canvasRow.className = 'canvasRow' + k;
     pixelGrid.appendChild( canvasRow );
 
-    for( var p = 1; p <= 100 ; p++ ){
+    for( var p = 1; p <= 130 ; p++ ){
       var canPixels = document.createElement( 'td' );
       canPixels.id = 'canPixels' + p;
       canPixels.className = 'canPixels';
