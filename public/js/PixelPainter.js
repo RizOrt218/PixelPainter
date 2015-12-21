@@ -9,7 +9,7 @@ window.onload = function() {
 
   var main = document.getElementById( 'pixelPainter' );
 
-  //div for color and button
+  // div for color and button
   var leftScreen = document.createElement( 'div' );
     leftScreen.className = 'leftScreen';
     main.appendChild( leftScreen );
@@ -20,7 +20,7 @@ window.onload = function() {
 
   var header = document.createElement( 'h1' );
     header.id = 'header';
-    rightScreen.appendChild( header );
+    leftScreen.appendChild( header );
     document.getElementById( 'header' ).innerHTML = 'PixelPainter';
 
 //=======================jQuery Color Swatch============================
@@ -49,10 +49,10 @@ window.onload = function() {
       ;
     $( 'div.starterColors' ).append( starterColorBtn ); //appendChild( starterColors )
   }
-
-    $( '.starterColorBtn' ).click( function() { //click fn for individual starting color btn
+    $( '.starterColorBtn' ).click( function retreiveColor() { //click fn for individual starting color btn
       var $this = this;
       newColor = $this.style.backgroundColor;
+      console.log(newColor);
       return newColor;
     });
 
@@ -65,12 +65,6 @@ window.onload = function() {
 
 //================= Red color swatch
   var redArr = ['#330000', '#660000', '#990000', '#cc0000', '#ff0000', '#ff3333', '#ff6666', '#ff9999'];
-
-  // var redSwatch = $( '<div>' );
-  // redSwatch
-  //   .addClass( 'redSwatch' )
-  // ;
-  // $( 'div.swatchLandingArea').append( redSwatch );
 
   for ( var j = 0; j < redArr.length; j++ ) {
     var redBtn = $( '<div>' );
@@ -188,12 +182,19 @@ window.onload = function() {
     ;
     $( 'div.swatchLandingArea' ).append( blackBtn );
   }
+
+   $( '.gradientBtn' ).click( function () {
+      var $this = this;
+      newColor = $this.style.backgroundColor;
+      console.log(newColor, [i]);
+      return newColor;
+    });
 // ========================= end of jQuery
 
   var pixelGrid = document.createElement( 'table' );
     pixelGrid.id = 'pixGrid';
     pixelGrid.className = 'pixelGrid';
-    rightScreen.appendChild( pixelGrid );
+    pixelPainter.appendChild( pixelGrid );
 
   for( var k = 1; k <= 100; k++ ){
     var canvasRow = document.createElement( 'tr' );

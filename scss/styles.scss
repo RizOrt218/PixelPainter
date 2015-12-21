@@ -1,116 +1,87 @@
 @import "partials/reset";
 
+#pixelPainter {
+  padding-top: 5%;
+  display: flex;
+  flex-flow: row nowrap;
+  background-color: #97EFD0;
 
+}
+
+//childElement of pixelPainter
+//appended to leftScreen
+.leftScreen {
+  margin: auto;
+}
+.colorGrid {
+  // background-color: yellow;
+  margin: 6%;
+  height: 50%;
+  display: flex;
+  flex-flow: row nowrap;
+  flex: 0 0 50%;
+  order: 1;
+
+  .starterColors {
+    display: flex;
+    flex-flow: row wrap;
+    width: 10%;
+
+    .starterColorBtn {
+      width: 100%;
+    }
+  }
+  .swatchLandingArea {
+    // background-color: purple;
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-flow: row wrap;
+
+    .gradientBtn {
+      width: 12%;
+    }
+  }
+}
+
+//childElement of PixelPainter
 h1 {
+  // background-color: yellow;
   font-family: Arial;
   font-size: 70px;
-  margin-bottom: 0;
+  margin: auto;
   text-align: center;
   text-shadow: 2px 2px #AAAAAA;
   transition: all 3s ease;
 }
 
-body {
-  background-color: #B7FAF2;
-}
-
-.leftScreen {
-  background-color: #C3F6F1;
-  border-radius: 15px;
-  float: left;
-  height: 100%;
-  width: 20%;
-}
-
-.colorGrid {
-  width: 100%;
-  height: 50%;
-  float: left;
-  background-color: white;
-}
-
-.starterColors {
-  width: 25%;
-  height: 100%;
-  float: left;
-  background-color: teal;
-}
-
-.starterColorBtn {
-  border: 0px;
-  height: 10%;
-  width: 100%;
-}
-
-.swatchLandingArea {
-  height: 100%;
-  width: 75%;
-  background-color: yellow;
-  float: right;
-}
-
-.redSwatchRow {
-  height: 10%;
-  width: 100%;
-  background-color: #FF0000;
-}
-
-.redSwatchBtn {
-  height: 100%;
-  width: 20%;
-  background-color: gray;
-  display: inline-block;
-}
-
-.rightScreen {
-  border-radius: 10px;
-  float: right;
-  height: 100%;
-  width: 79%;
-}
-
+//appended to rightScreen
 .pixelGrid {
   background-image: url("http://orig09.deviantart.net/b2ab/f/2013/120/5/9/untitled_drawing_by_bepbody64-d63md74.png");
   background-repeat: no-repeat;
   background-position: center;
-  border: 8px solid white;
+  border: 8px solid purple;
   margin: auto;
-  margin-top: 20px;
+  margin-top: 30px;
   transition: all 2s ease;
+  order: 2;
+
+  .canPixels {
+    height: 5px;
+    width: 5px;
+    opacity: .7;
+  }
 }
 
-// table {
-//   border-collapse: collapse;
-// }
-
-.canvasRow {
-}
-
-.canPixels {
-  height: 5px;
-  width: 5px;
-  opacity: .7;
-}
-
-.imageRow {
-  height: 20%;
-  width: 100%;
-  background-color: pink;
-}
-
-#funButtons {
-  padding-top: 550px;
-}
-
+//appended to rightScreen
 .fnButtons {
-  height: 20px;
-  width: 90px;
+  width: 80px;
   font-family: Arial;
   font-size: 18px;
   color: #ffffff;
   text-align: center;
   text-shadow: 1px 1px 1px #000;
-  margin: 0px 5px 5px 7%;
+  margin: 15px 2px 2px 2px;
   padding: .5em;
   border: solid thin #882d13;
   background-color: #FADC9F;
@@ -124,40 +95,9 @@ body {
   background-color: #DFB169;
 }
 
-.colorGrid {
-  margin: 20px;
-  height: 500px;
-  width: 300px;
-  background-color: gray;
-}
-
-.starterColors {
-  height: 100%;
-  width: 10%;
-  float: left;
-}
-
-.starterColorBtn {
-  height: 10%;
-  width: 100%;
-}
-
-
-.swatchLandingArea {
-  height: 100%;
-  width: 90%;
-  float: right;
-  background-color: yellow;
-}
-
-.gradientBtn {
-  height: 10%;
-  width: 12.5%;
-  display: inline-block;
-}
-
 @media (max-width: 360px){
   body {
     background-color: purple;
   }
 }
+
